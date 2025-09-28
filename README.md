@@ -1,3 +1,13 @@
+---
+title: Movie Recommender
+emoji: 🤖
+colorFrom: blue
+colorTo: green
+sdk: docker
+sdk_version: "1.0"
+app_file: app.main
+pinned: false
+---
 # 🎬 Movie Recommender System (FastAPI + LangGraph + FAISS)
 
 This project is an AI-powered **movie recommender system**.  
