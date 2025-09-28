@@ -22,14 +22,14 @@ class Recommender:
         self.llmExplanation = ChatOpenAI(
             openai_api_key=os.environ["OPENROUTER"],
             openai_api_base="https://openrouter.ai/api/v1",
-            model="meta-llama/llama-4-scout:free",
+            model="mistralai/mistral-7b-instruct:free",
             temperature=0,
             max_tokens=512,
         )
         self.llmTranslation = ChatOpenAI(
             openai_api_key=os.environ["OPENROUTER"],
             openai_api_base="https://openrouter.ai/api/v1",
-            model="meta-llama/llama-4-scout:free",  # switch here
+            model="mistralai/mistral-7b-instruct:free",  # switch here
             temperature=0,
             max_tokens=512
         )
