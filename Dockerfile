@@ -24,11 +24,10 @@ RUN python -c "from langchain_huggingface import HuggingFaceEmbeddings; HuggingF
 # ---- Copy FAISS index to /tmp at runtime ----
 # We'll copy them from /app/faiss_index in CMD, since /tmp is the only writable location in Spaces
 # We will do this in an entrypoint script
-COPY entrypoint.sh /app/entrypoint.sh
-RUN chmod +x /app/entrypoint.sh
 
 # Expose port
 EXPOSE 8000
 
 # Run entrypoint
-CMD ["/app/entrypoint.sh"]
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "7860"]
+
