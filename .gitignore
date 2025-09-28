@@ -1,0 +1,48 @@
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# --- Virtual environments ---
+.venv/
+venv/
+env/
+ENV/
+*.env
+.env.*
+
+# --- Jupyter / notebooks ---
+.ipynb_checkpoints
+*.ipynb
+
+# --- OS / Editor files ---
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# --- Logs / Caches ---
+*.log
+*.out
+*.err
+*.sqlite3
+.cache/
+.mypy_cache/
+.pytest_cache/
+coverage/
+htmlcov/
+
+# --- FAISS / Embedding intermediate dumps ---
+*.npy
+
+# --- Project specific ---
+# Keep data/ and faiss_index/ in git, but ignore temporary stuff inside them
+data/*
+faiss_index/*
