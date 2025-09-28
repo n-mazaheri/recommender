@@ -3,6 +3,8 @@ FROM python:3.10-slim
 
 # Set workdir
 WORKDIR /app
+ENV TRANSFORMERS_CACHE=/tmp/.cache
+RUN mkdir -p /tmp/.cache && chmod -R 777 /tmp/.cache
 
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
@@ -19,7 +21,10 @@ RUN pip install -r requirements.txt
 
 # ---- Pre-download MiniLM embeddings at build time ----
 # The model will be stored in the default Hugging Face cache (~/.cache/huggingface)
-RUN python -c "from langchain_huggingface import HuggingFaceEmbeddings; HuggingFaceEmbeddings(model_name='sentence-transformers/all-MiniLM-L6-v2')"
+RUN python -c "from langchain_community.embeddings import HuggingFaceEmbeddings; HuggingFaceEmbeddings(model_name='sentence-transformers/all-MiniLM-L6-v2')"
+
+
+COPY . .
 
 # ---- Copy FAISS index to /tmp at runtime ----
 # We'll copy them from /app/faiss_index in CMD, since /tmp is the only writable location in Spaces
