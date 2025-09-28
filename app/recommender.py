@@ -6,15 +6,14 @@ from langdetect import detect
 from dotenv import load_dotenv
 
 load_dotenv()  # loads .env into os.environ
+os.environ["TRANSFORMERS_CACHE"] = "/tmp/.cache"
 
 
 class Recommender:
     def __init__(self, index_dir="faiss_index"):
         # ✅ Embeddings (English only)
         self.embeddings = HuggingFaceEmbeddings(
-            model_name="sentence-transformers/all-MiniLM-L6-v2",
-            model_kwargs={"cache_dir": "/tmp/hf_cache"}
-        )
+            model_name="sentence-transformers/all-MiniLM-L6-v2")
         self.db = FAISS.load_local(
             index_dir, self.embeddings, allow_dangerous_deserialization=True
         )
