@@ -12,7 +12,8 @@ class Recommender:
     def __init__(self, index_dir="faiss_index"):
         # ✅ Embeddings (English only)
         self.embeddings = HuggingFaceEmbeddings(
-            model_name="sentence-transformers/all-MiniLM-L6-v2"
+            model_name="sentence-transformers/all-MiniLM-L6-v2",
+            model_kwargs={"cache_dir": "/tmp/hf_cache"}
         )
         self.db = FAISS.load_local(
             index_dir, self.embeddings, allow_dangerous_deserialization=True
