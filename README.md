@@ -21,6 +21,11 @@ The pipeline:
 5. Translates the explanations back into the user’s language.
 
 ---
+## 🚀 Live Demo
+
+[![Live Demo](https://img.shields.io/badge/Demo-Live-brightgreen?style=for-the-badge)](https://recommender-frontend-wpsh.onrender.com)
+
+---
 
 ## ✨ Features
 - Multilingual support (query in any language 🌍).
